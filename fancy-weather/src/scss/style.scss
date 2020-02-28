@@ -1,0 +1,649 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+}
+
+.header .control {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 90px 0;
+    height: 45px;
+    .control__left-block {
+        display: flex;
+        .control__change-bg-image {
+            background-image: url(../assets/backgroundChangeBgButton.png);
+            margin-right: 20px;
+            .change-bg-image__icon {
+                font-size: 16px;
+                color: #ffffff;
+            }
+        }
+        .control__change-language {
+            margin-right: 20px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .control__change-temperature_fahrenheit {
+            border-radius: 5px 0 0 5px;
+            background-color: rgba(76, 82, 85, 0.4);
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .control__change-temperature_celsius {
+            border-radius: 0 5px 5px 0;
+            background-color: rgba(76, 82, 85, 0.4);
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .control__change-temperature_fahrenheit:hover,
+        .control__change-temperature_celsius:hover {
+            background: rgba(103, 178, 224, 0.5);
+        }
+        .active {
+            background: rgba(174, 181, 185, 0.5);
+        }
+    }
+    .control__right-block {
+        display: flex;
+        align-items: center;
+        .form {
+            height: 45px;
+            display: flex;
+            position: relative;
+        }
+        .form__search-text {
+            width: 270px;
+            height: 45px;
+            background: rgba(76, 82, 85, 0.4);
+            border: 1px solid rgba(228, 227, 227, 0.2);
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            font-size: 15px;
+            color: #ffffff;
+            padding: 0 15px 0 40px;
+        }
+        .form__speech {
+            position: absolute;
+            font-size: 24px;
+            left: 3.5%;
+            top: 23%;
+            color: #ffffff;
+        }
+        .form__speech-active {
+            color: rgb(103, 178, 224);
+        }
+        .form__speech:hover {
+            color: #adadad;
+        }
+        .form__button {
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            width: 100px;
+            border-radius: 0 5px 5px 0;
+        }
+    }
+}
+
+.wrapper .main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.main .weather {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0 0 90px;
+    .weather-today {
+        display: flex;
+        flex-direction: column;
+        .weather-today__town {
+            font-size: 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+        .weather-today__date-time {
+            display: flex;
+            margin-top: 5px;
+            .weather-today__date {
+                font-size: 22px;
+                margin-right: 20px;
+                color: #ffffff;
+                text-transform: capitalize;
+            }
+            .weather-today__time {
+                font-size: 22px;
+                color: #ffffff;
+            }
+        }
+        .weather-today__total-weather-info {
+            display: flex;
+            .weather-today__temperature {
+                margin-left: 50px;
+                font-size: 260px;
+                font-weight: 700;
+                color: #ffffff;
+            }
+            .weather-today__temperature_grad {
+                font-size: 100px;
+                font-weight: 700;
+                color: #ffffff;
+                padding-top: 52px;
+            }
+        }
+        .weather-today__summary {
+            display: flex;
+            flex-direction: column;
+            min-width: 175px;
+            .weather-today__icon {
+                margin-top: 30px;
+                width: 125px;
+            }
+            .weather-today__description,
+            .weather-today__feels-like,
+            .weather-today__wind,
+            .weather-today__humidity {
+                font-size: 18px;
+                text-transform: uppercase;
+                color: #ffffff;
+                margin-top: 5px;
+                font-weight: 500;
+            }
+            .weather-today__description {
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .weather-three-days {
+        display: flex;
+        .first-day {
+            display: flex;
+            flex-direction: column;
+            width: 220px;
+            .first-day__name {
+                font-size: 20px;
+                text-transform: uppercase;
+                color: #ffffff;
+            }
+            .first-day__info {
+                display: flex;
+                .first-day__temperature {
+                    font-size: 70px;
+                    font-weight: 500;
+                    color: #ffffff;
+                }
+                .first-day__temperature_grad {
+                    padding-top: 10px;
+                    font-weight: 500;
+                    font-size: 40px;
+                    color: #ffffff;
+                }
+                .first-day__icon {
+                    padding: 5px 0 0 10px;
+                    width: 60px;
+                    align-self: flex-start;
+                }
+            }
+        }
+        .second-day {
+            display: flex;
+            flex-direction: column;
+            width: 220px;
+            .second-day__name {
+                font-size: 20px;
+                text-transform: uppercase;
+                color: #ffffff;
+            }
+            .second-day__info {
+                display: flex;
+                .second-day__temperature {
+                    font-size: 70px;
+                    font-weight: 500;
+                    color: #ffffff;
+                }
+                .second-day__temperature_grad {
+                    padding-top: 10px;
+                    font-weight: 500;
+                    font-size: 40px;
+                    color: #ffffff;
+                }
+                .second-day__icon {
+                    padding: 5px 0 0 10px;
+                    width: 60px;
+                    align-self: flex-start;
+                }
+            }
+        }
+        .third-day {
+            display: flex;
+            flex-direction: column;
+            width: 220px;
+            .third-day__name {
+                font-size: 20px;
+                text-transform: uppercase;
+                color: #ffffff;
+            }
+            .third-day__info {
+                display: flex;
+                .third-day__temperature {
+                    font-size: 70px;
+                    font-weight: 500;
+                    color: #ffffff;
+                }
+                .third-day__temperature_grad {
+                    padding-top: 10px;
+                    font-weight: 500;
+                    font-size: 40px;
+                    color: #ffffff;
+                }
+                .third-day__icon {
+                    padding: 5px 0 0 10px;
+                    width: 60px;
+                    align-self: flex-start;
+                }
+            }
+        }
+    }
+}
+
+.main .geolocation {
+    display: flex;
+    flex-direction: column;
+    margin: 80px 90px 0 0;
+    .geolocation__map {
+        width: 300px;
+        height: 300px;
+        -moz-border-radius: 30px; /* Firefox */
+        -webkit-border-radius: 30px; /* Safari, Chrome */
+        -khtml-border-radius: 30px; /* KHTML */
+        border-radius: 30px; /* CSS3 */
+        overflow: hidden;
+    }
+    .geolocation__latitude {
+        align-self: flex-end;
+        font-size: 18px;
+        color: #ffffff;
+        margin-top: 20px;
+    }
+    .geolocation__longitude {
+        align-self: flex-end;
+        font-size: 18px;
+        color: #ffffff;
+        margin-top: 5px;
+    }
+}
+
+.btn {
+    border-radius: 5px;
+    background: rgba(174, 181, 185, 0.5);
+    border: none;
+    width: 45px;
+    height: 45px;
+    outline: none;
+}
+
+.btn:hover {
+    background: rgba(103, 178, 224, 0.5);
+}
+
+@media screen and (min-width: 1367px) and (max-width: 2000px) {
+    .wrapper {
+        max-width: 2000px;
+    }
+
+    .header .control {
+        height: 50px;
+        .control__left-block {
+            .control__change-bg-image {
+                background-image: url(../assets/backgroundChangeBgButton.png);
+                background-size: cover;
+                .change-bg-image__icon {
+                    font-size: 18px;
+                }
+            }
+            .control__change-language,
+            .control__change-temperature_fahrenheit,
+            .control__change-temperature_celsius {
+                font-size: 18px;
+            }
+        }
+        .control__right-block {
+            .form {
+                height: 50px;
+            }
+            .form__search-text {
+                width: 300px;
+                height: 50px;
+                font-size: 18px;
+            }
+            .form__speech {
+                top: 26%;
+            }
+            .form__button {
+                font-size: 18px;
+                width: 130px;
+            }
+        }
+    }
+
+    .main .weather {
+        margin: 35px 0 0 90px;
+        .weather-today {
+            .weather-today__town {
+                font-size: 45px;
+            }
+            .weather-today__date-time {
+                .weather-today__date,
+                .weather-today__time {
+                    font-size: 23px;
+                }
+            }
+            .weather-today__total-weather-info {
+                .weather-today__temperature {
+                    font-size: 270px;
+                }
+            }
+            .weather-today__summary {
+                .weather-today__icon {
+                    width: 135px;
+                }
+                .weather-today__description,
+                .weather-today__feels-like,
+                .weather-today__wind,
+                .weather-today__humidity {
+                    font-size: 19px;
+                }
+            }
+        }
+
+        .weather-three-days {
+            .first-day {
+                .first-day__name {
+                    font-size: 22px;
+                }
+                .first-day__info {
+                    .first-day__temperature {
+                        font-size: 80px;
+                    }
+                    .first-day__icon {
+                        width: 65px;
+                    }
+                }
+            }
+            .second-day {
+                .second-day__name {
+                    font-size: 22px;
+                }
+                .second-day__info {
+                    .second-day__temperature {
+                        font-size: 80px;
+                    }
+                    .second-day__icon {
+                        width: 65px;
+                    }
+                }
+            }
+            .third-day {
+                .third-day__name {
+                    font-size: 22px;
+                }
+                .third-day__info {
+                    .third-day__temperature {
+                        font-size: 80px;
+                    }
+                    .third-day__icon {
+                        width: 65px;
+                    }
+                }
+            }
+        }
+    }
+
+    .main .geolocation {
+        .geolocation__map {
+            width: 350px;
+            height: 350px;
+        }
+        .geolocation__latitude,
+        .geolocation__longitude {
+            font-size: 20px;
+        }
+    }
+
+    .btn {
+        border-radius: 5px;
+        background: rgba(174, 181, 185, 0.5);
+        border: none;
+        width: 50px;
+        height: 50px;
+        outline: none;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1085px) {
+    .wrapper {
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .header .control {
+        margin: 40px 5% 0;
+        .control__left-block {
+            .control__change-bg-image {
+                margin-right: 15px;
+            }
+            .control__change-language {
+                margin-right: 15px;
+            }
+        }
+        .control__right-block {
+            .form__search-text {
+                width: 240px;
+            }
+        }
+    }
+
+    .wrapper .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main .weather {
+        align-items: center;
+        margin: 30px 10% 0;
+        .weather-today {
+            align-items: center;
+        }
+
+        .weather-three-days {
+            .first-day,
+            .second-day,
+            .third-day {
+                align-items: center;
+            }
+        }
+    }
+
+    .main .geolocation {
+        width: 100%;
+        margin: 70px 10% 0;
+        align-items: center;
+        .geolocation__map {
+            width: 80%;
+        }
+        .geolocation__latitude,
+        .geolocation__longitude {
+            align-self: center;
+        }
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 599px) {
+    .wrapper {
+        width: 100%;
+        min-width: 320px;
+        max-width: 599px;
+    }
+
+    .header .control {
+        flex-direction: column;
+        align-items: center;
+        height: 100px;
+        margin: 40px 5% 0;
+        .control__left-block {
+            width: 100%;
+            justify-content: space-between;
+            .control__change-temperature_fahrenheit {
+                border-radius: 5px;
+            }
+            .control__change-temperature_celsius {
+                border-radius: 5px;
+            }
+        }
+        .control__right-block {
+            width: 100%;
+            margin-top: 10px;
+            .form {
+                width: 100%;
+                .form__search-text {
+                    width: 90%;
+                }
+            }
+        }
+    }
+
+    .wrapper .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main .weather {
+        align-items: center;
+        width: 100%;
+        margin: 30px 5% 0;
+        .weather-today {
+            align-items: center;
+            .weather-today__town {
+                font-size: 35px;
+            }
+            .weather-today__total-weather-info {
+                .weather-today__temperature {
+                    margin: 50px 0 0 30px;
+                    font-size: 130px;
+                }
+                .weather-today__temperature_grad {
+                    margin-top: 30px;
+                    font-size: 40px;
+                }
+            }
+            .weather-today__summary {
+                min-width: 155px;
+                .weather-today__icon {
+                    width: 85px;
+                }
+                .weather-today__description,
+                .weather-today__feels-like,
+                .weather-today__wind,
+                .weather-today__humidity {
+                    font-size: 16px;
+                }
+                .weather-today__description {
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        .weather-three-days {
+            width: 100%;
+            margin-top: 20px;
+            .first-day {
+                align-items: center;
+                width: 33%;
+                .first-day__name {
+                    font-size: 15px;
+                }
+                .first-day__info {
+                    .first-day__temperature {
+                        font-size: 50px;
+                    }
+                    .first-day__temperature_grad {
+                        padding-top: 10px;
+                        font-size: 20px;
+                    }
+                    .first-day__icon {
+                        width: 50px;
+                    }
+                }
+            }
+            .second-day {
+                width: 33%;
+                align-items: center;
+                .second-day__name {
+                    font-size: 15px;
+                }
+                .second-day__info {
+                    .second-day__temperature {
+                        font-size: 50px;
+                    }
+                    .second-day__temperature_grad {
+                        padding-top: 10px;
+                        font-size: 20px;
+                    }
+                    .second-day__icon {
+                        width: 50px;
+                    }
+                }
+            }
+            .third-day {
+                width: 33%;
+                align-items: center;
+                .third-day__name {
+                    font-size: 15px;
+                }
+                .third-day__info {
+                    .third-day__temperature {
+                        font-size: 50px;
+                    }
+                    .third-day__temperature_grad {
+                        padding-top: 10px;
+                        font-size: 20px;
+                    }
+                    .third-day__icon {
+                        width: 50px;
+                    }
+                }
+            }
+        }
+    }
+
+    .main .geolocation {
+        width: 100%;
+        margin: 70px 10% 0;
+        align-items: center;
+        .geolocation__map {
+            width: 80%;
+        }
+        .geolocation__latitude,
+        .geolocation__longitude {
+            align-self: center;
+        }
+    }
+}
